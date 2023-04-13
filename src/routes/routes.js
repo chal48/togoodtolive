@@ -1,4 +1,5 @@
 const mysqlController = require('../controller/mysqlController')
+const serviceController = require('../controller/serviceController')
 
 module.exports = function(app){
     app.get('/api', (req, res) => {
@@ -12,5 +13,10 @@ module.exports = function(app){
 
     app.get('/', (req, res) => {
         res.sendFile('/template/home.html', {root: './public' })
+    })
+
+    app.post("/api/fixtures", (req, res) => {
+        serviceController.makeFixtures()
+        res.send('finished')
     })
 }
