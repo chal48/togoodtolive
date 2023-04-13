@@ -1,7 +1,7 @@
 const express = require('express')
 const mysql = require("mysql2")
 const app = express()
-const port = 8001
+const port = 8000
 
 app.use('/css/:filename', (req, res) =>{
     var filename = req.params.filename;
@@ -18,7 +18,7 @@ app.use('/js/:filename', (req, res) =>{
     res.sendFile(__dirname + '/public/script/' + filename);
 });
 
-console.log(__dirname + '/public/style/:filename')
+
 
 app.get('/api', (req, res) => {
     res.send('Hello World!')
