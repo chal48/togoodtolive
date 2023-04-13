@@ -3,6 +3,8 @@ const mysql = require("mysql2")
 const app = express()
 const port = 8000
 
+const routes = require('./src/routes/routes')
+
 app.use('/css/:filename', (req, res) =>{
     var filename = req.params.filename;
     res.sendFile(__dirname + '/public/style/' + filename);
@@ -18,18 +20,7 @@ app.use('/js/:filename', (req, res) =>{
     res.sendFile(__dirname + '/public/script/' + filename);
 });
 
-
-app.get('/api', (req, res) => {
-    res.send('Hello World!')
-})
-
-app.get('/user/:userId', (req, res) => {
-    res.send('Page d\'accueil')
-})
-
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/template/home.html')
-})
+routes(app)
 
 app.listen(port, () => {
     console.log(`Serveur lancé sur http://localhost:${port}/`)
