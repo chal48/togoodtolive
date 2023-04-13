@@ -1,0 +1,126 @@
+body{
+    background-color: white;
+}
+.info-profil{
+    display: flex;
+    justify-content:space-around;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    margin-left: -60px;
+}
+.logo-profil{
+    
+    width: 500px;
+    height: 300px;
+    border: 1px solid black;
+}
+.spacebar {
+  display: flex;
+  justify-content: center;
+}
+.bar {
+  height: 500px;
+  width: 6px;
+  background: black;
+  border-radius: 50px;
+  margin-left: -40px;
+}
+.data{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.lastname{
+    font-family: 'Kodchasan';
+    color: black;
+    font-weight: 100;
+}
+.input-lastname{
+    padding-left: 10px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    border: none;
+    width: 250px;
+    height: 35px;
+    font-family: 'Kodchasan';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #BE8888;
+    cursor: text;
+}
+.name{
+    font-family: 'Kodchasan';
+    color: black;
+    font-weight: 100;
+}
+.input-name{
+    padding-left: 10px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    border: none;
+    width: 250px;
+    height: 35px;
+    font-family: 'Kodchasan';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #BE8888;
+    cursor: text;
+}
+.user{
+    font-family: 'Kodchasan';
+    color: black;
+    font-weight: 100;
+}
+.input-user{
+    padding-left: 10px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    border: none;
+    width: 250px;
+    height: 35px;
+    font-family: 'Kodchasan';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #BE8888;
+    cursor: text;
+}
+.email{
+    font-family: 'Kodchasan';
+    color: black;
+    font-weight: 100;
+}
+.input-email{
+    padding-left: 10px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    border: none;
+    width: 250px;
+    height: 35px;
+    font-family: 'Kodchasan';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #BE8888;
+    cursor: text;
+}
