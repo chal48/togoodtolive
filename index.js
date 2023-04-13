@@ -4,6 +4,11 @@ const port = 8000
 
 app.use('/css',express.static(__dirname+'/profil.css'))
 
+app.use('/img/:filename', (req, res) =>{
+    var filename = req.params.filename;
+    res.sendFile(__dirname + '/public/img/' + filename);
+});
+
 app.get('/api', (req, res) => {
     res.send('Hello World!')
 })

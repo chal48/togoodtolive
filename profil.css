@@ -1,52 +1,72 @@
-body{
+body {
     background-color: white;
+    font-family: 'Kodchasan';
+    color: black;
+    font-weight: 100;
 }
-.info-profil{
+
+.info-profil {
     display: flex;
-    justify-content:space-around;
+    justify-content: space-around;
 }
-.logo{
+
+.logo {
+    margin-top: 100px;
     display: flex;
     align-items: center;
     margin-left: -60px;
 }
-.logo-profil{
-    
-    width: 500px;
-    height: 300px;
-    border: 1px solid black;
+
+.logo-profil {
+    width: 509px;
+    height: 363px;
+    /* border: 1px solid black; */
 }
+
 .spacebar {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    position: absolute;
+    left: 50;
+    justify-content: center;
 }
+
 .bar {
-  height: 500px;
-  width: 6px;
-  background: black;
-  border-radius: 50px;
-  margin-left: -40px;
+    margin-top: 25px;
+    position: absolute;
+    left: 50;
+    height: 500px;
+    width: 6px;
+    background: black;
+    border-radius: 50px;
+    /* margin-left: -40px; */
 }
-.data{
+
+.data {
+    margin-right: 30px;
+    margin-top: 90px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.lastname{
+.info{
+    margin-left: 15px;
+}
+.lastname {
     font-family: 'Kodchasan';
     color: black;
     font-weight: 100;
 }
-.input-lastname{
-    padding-left: 10px;
+
+.input-lastname {
+    padding-left: 15px;
     margin-top: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50px;
     border: none;
-    width: 250px;
-    height: 35px;
+    width: 350px;
+    height: 40px;
     font-family: 'Kodchasan';
     font-style: normal;
     font-weight: 500;
@@ -55,21 +75,28 @@ body{
     background-color: #BE8888;
     cursor: text;
 }
-.name{
+.input-lastname::placeholder {
+    font-family: 'Kodchasan';
+    font-style: normal;
+    color: #f0e1e1;
+  }
+
+.name {
     font-family: 'Kodchasan';
     color: black;
     font-weight: 100;
 }
-.input-name{
-    padding-left: 10px;
+
+.input-name {
+    padding-left: 15px;
     margin-top: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50px;
     border: none;
-    width: 250px;
-    height: 35px;
+    width: 350px;
+    height: 40px;
     font-family: 'Kodchasan';
     font-style: normal;
     font-weight: 500;
@@ -78,21 +105,28 @@ body{
     background-color: #BE8888;
     cursor: text;
 }
-.user{
+.input-name::placeholder {
+    font-family: 'Kodchasan';
+    font-style: normal;
+    color: #f0e1e1;
+  }
+
+.user {
     font-family: 'Kodchasan';
     color: black;
     font-weight: 100;
 }
-.input-user{
-    padding-left: 10px;
+
+.input-user {
+    padding-left: 15px;
     margin-top: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50px;
     border: none;
-    width: 250px;
-    height: 35px;
+    width: 350px;
+    height: 40px;
     font-family: 'Kodchasan';
     font-style: normal;
     font-weight: 500;
@@ -101,21 +135,28 @@ body{
     background-color: #BE8888;
     cursor: text;
 }
-.email{
+.input-user::placeholder {
+    font-family: 'Kodchasan';
+    font-style: normal;
+    color: #f0e1e1;
+  }
+
+.email {
     font-family: 'Kodchasan';
     color: black;
     font-weight: 100;
 }
-.input-email{
-    padding-left: 10px;
+
+.input-email {
+    padding-left: 15px;
     margin-top: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50px;
     border: none;
-    width: 250px;
-    height: 35px;
+    width: 350px;
+    height: 40px;
     font-family: 'Kodchasan';
     font-style: normal;
     font-weight: 500;
@@ -124,3 +165,91 @@ body{
     background-color: #BE8888;
     cursor: text;
 }
+.input-email::placeholder {
+    font-family: 'Kodchasan';
+    font-style: normal;
+    color: #f0e1e1;
+  }
+  @media screen and (max-width: 1024px) {
+    .logo-profil {
+        width: 409px;
+        height: 263px;
+        margin-left: 50px;
+    }
+  }
+  @media screen and (max-width: 768px){
+    .info-profil {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .data{
+        margin-top: 150px;
+    }
+    .logo-profil {
+        width: 409px;
+        height: 263px;
+        margin-left: 50px;
+    }
+    .bar {
+        margin-top: 15px;
+        position: absolute;
+        left: 50;
+        height: 6px;
+        width: 500px;
+    }
+
+  }
+  @media screen and (max-width: 426px){
+    .bar {
+        margin-top: 15px;
+        position: absolute;
+        left: 50;
+        height: 6px;
+        width: 300px;
+
+    }
+    .data{
+        margin-left: 30px;
+    }
+
+  }
+  @media screen and (max-width: 376px){
+    .data{
+        margin-right: 20px;
+    }
+  }
+  @media screen and (max-width: 321px){
+    .logo-profil {
+        width: 215px;
+        height: 153px;
+        margin-left: 100px;
+    }
+    .bar {
+        margin-top: -70px;
+        margin-left: 45px;
+        position: absolute;
+        left: 50;
+        height: 6px;
+        width: 300px;
+
+    }
+    .data{
+        margin-bottom: 55px;
+        margin-right: -10px;
+    }
+    .input-lastname {
+        width: 330px;
+    }
+    .input-name {
+        width: 330px;
+    }
+    .input-user {
+        width: 330px;
+    }
+    .input-email {
+        width: 330px;
+    }
+
+  }
