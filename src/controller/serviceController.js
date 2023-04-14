@@ -25,6 +25,7 @@ function makeFixtures() {
         // }
     }
 }
+
 function getUserById(userId){
     // Transforme en int pour vérifier que c'est bien un chiffre
     userId = parseInt(userId)

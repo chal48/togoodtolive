@@ -35,7 +35,7 @@ module.exports = function (app) {
         })
     })
 
-    app.patch('/patch/:userId', (req, res) => {
+    app.patch('/user/:userId', (req, res) => {
         let user = serviceController.patchUser(req.params.userId, req.body)
         user.then((response) => {
             if (response.error == undefined) {
