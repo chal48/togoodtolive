@@ -29,4 +29,14 @@ module.exports = function(app){
         serviceController.makeFixtures()
         res.send('finished')
     })
+
+    app.get('/posts/', (req, res) => {
+        let posts = serviceController.getAllPosts()
+        posts.then((response) => {
+            res.status(200).send(response)
+        })
+        .catch((error) => {
+            res.status(502)
+        })
+    })
 }
