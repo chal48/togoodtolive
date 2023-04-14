@@ -130,4 +130,15 @@ module.exports = function (app) {
             res.status(502).send(error)
         })
     })
+
+    app.patch('/post/:postId', (req, res) => {
+        let post = serviceController.patchPost(req.params.postId, req.body)
+        post.then((response) => {
+            if (response.error == undefined) {
+                res.status(204).send(response)
+            } else {
+                res.status(404).send(response)
+            }
+        })
+    })
 }

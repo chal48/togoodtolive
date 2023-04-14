@@ -155,6 +155,19 @@ function deletePostById(postId) {
     })
 }
 
+function patchPost(postId, postInformations) {
+    postId = parseInt(postId)
+    let post = mysqlController.patchPost(postId, postInformations)
+    return new Promise((resolve, reject) => {
+        post.then((post) => {
+            resolve(post)
+        })
+        .catch((error) => {
+            reject(error)
+        })
+    })
+}
+
 
 
 module.exports= {
@@ -165,5 +178,6 @@ module.exports= {
     getAllPosts,
     Delete,
     getPostById,
-    deletePostById
+    deletePostById,
+    patchPost
 }
