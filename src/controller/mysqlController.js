@@ -23,6 +23,23 @@ function getAllUsers(){
     
 }
 
+function patchUser(userId, user) {
+    return new Promise((resolve, reject) => {
+        SQLRequest(`UPDATE users SET email = "${user.email}", password = "${user.password}" WHERE id = ${userId}`)
+        .then((request)=>{
+            //vérifie si la requete quelequechose
+            if (request != undefined){
+                let user = request
+                resolve(user)
+            }else{
+                resolve({
+                    "error" : "No users found with id : "+ userId
+                })
+            }
+        })
+    })
+}
+
 function createUser(user){
     let userExist = isUserInDB(user.email)
     userExist
@@ -106,5 +123,6 @@ module.exports= {
     getAllUsers,
     createUser,
     createPost,
-    getUserById
+    getUserById,
+    patchUser
 }

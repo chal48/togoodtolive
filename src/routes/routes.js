@@ -35,10 +35,20 @@ module.exports = function(app){
         })
     })
 
+    app.patch('/patch/:userId', (req, res) => {
+        let user = serviceController.patchUser(req.params.userId, req.body)
+        user.then((response) => {
+            if (response.error == undefined) {
+                res.status(204).send(response)
+            } else {
+                res.status(404).send(response)
+            }
+        })
+    })
+
     app.post('/register', (req, res) => {
         let user = serviceController.createUser(req.body)
         user.then((response) => {
-            console.log(response)
             console.log(response.error != undefined)
             if (response.error == undefined) {
                 res.status(204).send(response)

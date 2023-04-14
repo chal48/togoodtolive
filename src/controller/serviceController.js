@@ -40,6 +40,19 @@ function getUserById(userId){
     })
 }
 
+function patchUser(userId, userInformations) {
+    userId = parseInt(userId)
+    let user = mysqlController.patchUser(userId, userInformations)
+    return new Promise((resolve, reject) => {
+        user.then((user) => {
+            resolve(user)
+        })
+        .catch((error) => {
+            reject(error)
+        })
+    })
+}
+
 function createUser(userInformations) {
     let user = mysqlController.createUser(userInformations)
 
@@ -57,5 +70,6 @@ function createUser(userInformations) {
 module.exports= {
     makeFixtures,
     getUserById,
-    createUser
+    createUser,
+    patchUser
 }
