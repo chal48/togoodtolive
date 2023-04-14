@@ -36,6 +36,22 @@ function createUser(user) {
     }
 }
 
+function patchUser(userId, user) {
+    return new Promise((resolve, reject) => {
+        SQLRequest(`UPDATE users SET email = "${user.email}", password = "${user.password}" WHERE id = ${userId}`)
+        .then((request)=>{
+            if (request != undefined){
+                let user = request
+                resolve(user)
+            }else{
+                resolve({
+                    "error" : "No users found with id : "+ userId
+                })
+            }
+        })
+    })
+}
+
 function createPost(post) {
     if (post.title != null && post.startDate != null && post.startPrice && post.userId != null && post.content != null) {
         let titleSanitized = databaseModel.connection.escape(post.title)
@@ -60,6 +76,23 @@ async function isUserInDB(username) {
     } else {
         return true
     }
+}
+
+function getUserById(userId){
+    return new Promise((resolve, reject) => {
+        SQLRequest(`SELECT * FROM users WHERE id = ${userId}`)
+        .then((request)=>{
+            //vérifie si la requete quelequechose
+            if (request[0] != undefined){
+                let user = request[0]
+                resolve(user)
+            }else{
+                resolve({
+                    "error" : "No users found with id : "+ userId
+                })
+            }
+        })
+    })
 }
 
 function getUserById(userId) {
@@ -145,12 +178,77 @@ function insertPost(post) {
     })
 }
 
-module.exports = {
+function getAllPosts() {
+    return new Promise((resolve, reject) => {
+        SQLRequest(`SELECT * FROM posts`)
+        .then((request)=>{
+            if (request != undefined){
+                let posts = request
+                resolve(posts)
+            }else{
+                resolve({
+                    "error" : "No post found"
+                })
+            }
+        })
+    })
+}
+
+function getPostById(postId) {
+    return new Promise((resolve, reject) => {
+        SQLRequest(`SELECT * FROM posts WHERE id = ${postId}`)
+        .then((request)=>{
+            if (request[0] != undefined){
+                let post = request[0]
+                resolve(post)
+            }else{
+                resolve({
+                    "error" : "No post found with id : "+ postId
+                })
+            }
+        })
+    })
+}
+
+function deletePostById(postId) {
+    return new Promise((resolve, reject) =>{
+        SQLRequest(`DELETE FROM posts WHERE id = "${postId}"`)
+        .then((request)=>{
+            if (request.affectedRows != 0){
+                resolve({})
+            }else{
+                resolve({
+                    "error" : "Can not delete the post with the id :" + postId
+                })
+            }
+        })
+    })
+}
+
+function deletePostById(postId) {
+    return new Promise((resolve, reject) =>{
+        SQLRequest(`DELETE FROM posts WHERE id = "${postId}"`)
+        .then((request)=>{
+            if (request.affectedRows != 0){
+                resolve({})
+            }else{
+                resolve({
+                    "error" : "Can not delete the post with the id :" + postId
+                })
+            }
+        })
+    })
+}
+
+module.exports= {
     getAllUsers,
-    createUser,
+    patchUser,
+    getAllPosts,
     createPost,
     getUserById,
     login,
     Delete,
-    insertPost
+    insertPost,
+    getPostById,
+    deletePostById
 }
