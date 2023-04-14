@@ -1,12 +1,12 @@
 const { faker } = require('@faker-js/faker');
 const mysqlController = require('./mysqlController')
 
-function makeFixtures(){
+function makeFixtures() {
     let randomUser = Math.floor(Math.random() * (30 - 20)) + 20
-    for (let i = 1; i<randomUser; i++){
+    for (let i = 1; i < randomUser; i++) {
         let user = {
-            "email" : faker.internet.email(),
-            "password" : faker.internet.password()
+            "email": faker.internet.email(),
+            "password": faker.internet.password()
         }
         mysqlController.createUser(user)
         // for (let j = 1; Math.floor(Math.random() * (3 - 1)) + 1; j++){
@@ -25,6 +25,47 @@ function makeFixtures(){
         // }
     }
 }
+function getUserById(userId){
+    // Transforme en int pour vérifier que c'est bien un chiffre
+    userId = parseInt(userId)
+    let user = mysqlController.getUserById(userId)
+    return new Promise((resolve, reject) => {
+        user.then((user) => {
+            resolve(user)
+        })
+        .catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+function login(user){
+    let userPassword =mysqlController.login(user.email);
+    return new Promise((resolve, reject)=>{
+        userPassword.then((response)=>{ 
+            if(response.password == user.password){
+                resolve(response)
+            }else{
+                resolve({
+                    "error" : "the password and the email don't match"
+                })
+            }      
+        })        
+    })
+}
+
+function Delete(userId){
+    userId = parseInt(userId)
+    let deleteUser = mysqlController.Delete(userId)
+    return new Promise((resolve, reject)=>{
+        deleteUser.then((response)=>{
+            resolve(response)
+        })
+        .catch((error)=>{
+            reject(error)
+        })
+    })
+}
 
 function getUserById(userId){
     // Transforme en int pour vérifier que c'est bien un chiffre
@@ -42,5 +83,7 @@ function getUserById(userId){
 
 module.exports= {
     makeFixtures,
-    getUserById
+    getUserById,
+    login,
+    Delete
 }

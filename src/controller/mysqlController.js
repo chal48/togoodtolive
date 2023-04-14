@@ -66,7 +66,7 @@ function getUserById(userId){
     return new Promise((resolve, reject) => {
         SQLRequest(`SELECT * FROM users WHERE id = ${userId}`)
         .then((request)=>{
-            //vérifie si la requete quelequechose
+            //vérifie si la requete renvoie quelequechose
             if (request[0] != undefined){
                 let user = request[0]
                 resolve(user)
@@ -79,9 +79,42 @@ function getUserById(userId){
     })
 }
 
+function login(email){
+    return new Promise((resolve, reject) =>{
+        SQLRequest(`SELECT password FROM users WHERE email = "${email}"`)//password (objet)
+        //permet de trouver le password
+        .then((request)=>{
+           if(request[0]!=undefined){
+            resolve(request[0])
+           }else{
+            resolve({
+                "error" : "No users found with this email: "+ email
+            })
+           }
+        })
+    })
+}
+
+function Delete(userId){
+    return new Promise((resolve, reject) =>{
+        SQLRequest(`DELETE FROM users WHERE id = "${userId}"`)
+        .then((request)=>{
+            if (request.affectedRows != 0){
+                resolve({})
+            }else{
+                resolve({
+                    "error" : "Can not delete the user with the id :" + userId
+                })
+            }
+        })
+    })
+}
+
 module.exports= {
     getAllUsers,
     createUser,
     createPost,
-    getUserById
+    getUserById,
+    login,
+    Delete
 }
