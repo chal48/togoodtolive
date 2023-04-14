@@ -78,6 +78,7 @@ function getUserById(userId){
         })
     })
 }
+
 function login(email){
     return new Promise((resolve, reject) =>{
         SQLRequest(`SELECT password FROM users WHERE email = "${email}"`)//password (objet)
@@ -91,7 +92,6 @@ function login(email){
             })
            }
         })
-
     })
 }
 
@@ -108,7 +108,6 @@ function Delete(userId){
             }
         })
     })
-
 }
 
 module.exports= {

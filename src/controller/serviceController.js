@@ -67,7 +67,21 @@ function Delete(userId){
     })
 }
 
-module.exports = {
+function getUserById(userId){
+    // Transforme en int pour vérifier que c'est bien un chiffre
+    userId = parseInt(userId)
+    let user = mysqlController.getUserById(userId)
+    return new Promise((resolve, reject) => {
+        user.then((user) => {
+            resolve(user)
+        })
+        .catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+module.exports= {
     makeFixtures,
     getUserById,
     login,
