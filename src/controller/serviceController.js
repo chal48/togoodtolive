@@ -39,7 +39,37 @@ function getUserById(userId){
     })
 }
 
+function login(user){
+    let userPassword =mysqlController.login(user.email);
+    return new Promise((resolve, reject)=>{
+        userPassword.then((response)=>{ 
+            if(response.password == user.password){
+                resolve(response)
+            }else{
+                resolve({
+                    "error" : "the password and the email don't match"
+                })
+            }      
+        })        
+    })
+}
+
+function Delete(userId){
+    userId = parseInt(userId)
+    let deleteUser = mysqlController.Delete(userId)
+    return new Promise((resolve, reject)=>{
+        deleteUser.then((response)=>{
+            resolve(response)
+        })
+        .catch((error)=>{
+            reject(error)
+        })
+    })
+}
+
 module.exports = {
     makeFixtures,
-    getUserById
+    getUserById,
+    login,
+    Delete
 }
