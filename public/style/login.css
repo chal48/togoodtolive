@@ -1,116 +1,270 @@
-*{
-  margin: 0;
-  padding: 0;  
+body {
+    background-color: white;
+    font-family: 'Kodchasan';
+    color: black;
+    font-weight: 300;
 }
-
-hr{
-    transform: rotate(90deg);
-    width: 100%;
-    margin-top: 24%;
-    border-radius: 15px;
+h1{
+    text-align: center;
+    font-family: 'Kodchasan';
+    color: black;
 }
-
-.loggo{
+.info-profil {
     display: flex;
+    justify-content: space-around;
 }
-
-.log{
+.logo {
     margin-top: 100px;
-    margin-left: 150px;
-    display: grid;
-    align-content: space-around;
+    display: flex;
+    align-items: center;
+    /* margin-left: -10px; */
 }
 
-::placeholder{
-    color: #ffffff;
+.logo-profil {
+    width: 509px;
+    height: 363px;
+}
+.spacebar {
+    display: flex;
+    position: absolute;
+    left: 50;
+    justify-content: center;
 }
 
-.input {
-    color: #ffffff;
+.bar {
+    margin-top: 25px;
+    position: absolute;
+    left: 50;
+    height: 500px;
+    width: 1px;
+    background: black;
+    border-radius: 50px;
+    /* margin-left: -40px; */
+}
+.data {
+    margin-right: 30px;
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.info{
+    margin-left: 15px;
+}
+
+.change-mdp {
+    font-family: 'Kodchasan';
+    color: black;
+    font-weight: 100;
+}
+
+.input-password {
+    padding-left: 15px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
     border: none;
-    border-radius: 45px;
-    padding: 1em;
-    padding-right: 150px;
-    background-color: #BE8888;
-    transition: 300ms ease-in-out;
-  }
-  
-  .input:focus {
+    width: 350px;
+    height: 40px;
+    font-family: 'Kodchasan';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
     color: #ffffff;
     background-color: #BE8888;
-    transform: scale(1.05);
-    box-shadow: 13px 13px 100px #ffffff,
-               -13px -13px 100px #ffffff;
+    cursor: text;
+}
+.input-password::placeholder {
+    font-family: 'Kodchasan';
+    font-style: normal;
+    color: #f0e1e1;
   }
 
-.connect{
-    margin-left: 70px;
-    font-size: 40px;
-    margin-top: 30px;
+.email {
+    font-family: 'Kodchasan';
+    color: black;
+    font-weight: 100;
 }
 
-.mail{
-    font-size: x-large;
-    margin-top: 30px;
+.input-email {
+    padding-left: 15px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    border: none;
+    width: 350px;
+    height: 40px;
+    font-family: 'Kodchasan';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #BE8888;
+    cursor: text;
 }
-
-.password{
-    font-size: x-large;
-    margin-top: 30px;
+.input-email::placeholder {
+    font-family: 'Kodchasan';
+    font-style: normal;
+    color: #f0e1e1;
+  }
+  .boutton {
+    font-family: 'Kodchasan';
+    color: black;
+    font-weight: 100;
 }
-
-.button{
-        color: #ffffff;
-        margin-left: 80px;
-        margin-top: 60px;
-        width: 150px;
-        height: 40px;
-        border: none;
-        border-radius: 45px;
-        transition: all 0.3s;
-        cursor: pointer;
-        background: #BE8888;
-        font-size: 1.2em;
-        font-weight: 550;
-        font-family: 'Montserrat', sans-serif;
-}
-
-.create{
-    margin-top: 15px;
-    margin-left: 80px;
-    display: grid;
-    align-content: space-around;
-}
-
-.mdp{
-    margin-top: 20px;
-}
-
-.account{
-    margin-top: 20px;
-}
-
-.ps{
-    font-size: x-large;
-    margin-top: 50px;
-    margin-left: 40%;
-}
-
-.sc{
-    font-size: x-large;
-    margin-left: 41%;
-}
-
-img{
-    margin-top: 25%;
-    margin-right: 200px;
-}
-
-.redirect{
+  .submit {
+    border: 1px solid #BE8888;
+    padding-left: 15px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    width: 370px;
+    height: 40px;
+    font-family: 'Kodchasan';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
     color: #BE8888;
-    text-decoration: none;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+.submit:hover{
+    color: #fff;
+    background-color: #BE8888;
+    border: none;
+
 }
 
-.here{
-    color:#BE8888;
+.option{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.seperate{
+    width: 1px;
+    height: 30px;
+    background: black;
+    border-radius: 50px;
+}
+
+.link{
+    cursor: pointer;
+}
+.link:hover{
+    color: #BE8888;
+}
+
+  @media screen and (max-width: 1024px) {
+    .logo-profil {
+        width: 409px;
+        height: 263px;
+        margin-left: 50px;
+    }
+  }
+  @media screen and (max-width: 821px){
+    .data{
+        margin-left: 30px;
+    }
+  }
+  @media screen and (max-width: 768px){
+    .info-profil {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .data{
+        margin-top: 150px;
+    }
+    .logo-profil {
+        width: 409px;
+        height: 263px;
+        margin-left: 50px;
+    }
+    .bar {
+        margin-top: 15px;
+        position: absolute;
+        left: 50;
+        height: 1px;
+        width: 500px;
+    }
+
+  }
+  @media screen and (max-width: 426px){
+    .bar {
+        margin-top: 15px;
+        position: absolute;
+        left: 50;
+        height: 1px;
+        width: 300px;
+
+    }
+    .data{
+        margin-left: 30px;
+    }
+
+  }
+  @media screen and (max-width: 376px){
+    .data{
+        margin-right: 20px;
+    }
+  }
+  @media screen and (max-width: 321px){
+    .logo-profil {
+        width: 215px;
+        height: 153px;
+        margin-left: 100px;
+    }
+    .bar {
+        margin-top: -70px;
+        margin-left: 45px;
+        position: absolute;
+        left: 50;
+        height: 1px;
+        width: 300px;
+
+    }
+    .data{
+        margin-bottom: 55px;
+        margin-right: -10px;
+    }
+    .input-password{
+        width: 330px;
+    }
+    .input-confmdp{
+        width: 330px;
+    }
+
+    .input-email {
+        width: 330px;
+    }
+    .submit{
+        width: 330px;
+    } 
+
+  }
+  @media screen and (max-width: 281px){
+    .data{
+        margin-left: 20px;
+    }
+    .input-email{
+        width: 250px;
+    }
+    .input-confmdp{
+        width: 250px;
+    }
+    .input-password{
+        width: 250px;
+    }
+    .submit{
+        width: 250px;
+    }
+
+  }

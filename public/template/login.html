@@ -1,40 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/login.css">
-    <title>log page</title>
+    <link href="https://fonts.cdnfonts.com/css/kodchasan" rel="stylesheet">
+    <title>TO GOOD TO GO</title>
 </head>
+
 <body>
-    <div class="global">
-        <div class="loggo">
-            <div class="log">
-                <div class="connect">
-                    Se connecter
+    <div class="all">
+        <div class="info-profil">
+            <div class="data">
+                <div class="titleh1">
+                    <h1>SE CONNECTER</h1>
+                    <br>
                 </div>
-                <div class="mail">
-                    Email <br>
-                    <input type="email" autocomplete="off" name="email" class="input" placeholder="Entrer votre mail...">
-                </div>
-                <div class="password">
-                    Mot de passe<br>
-                    <input type="password" autocomplete="off" name="password" class="input" placeholder="Entrer votre mot de passe...">
-                </div>
-                <button class="button" href="http://localhost:8000/user/login">CONNEXION</button>
-                <div class="create">
-                    <div class="account">Créé votre compte <a class="here" href="">ici</a></div>
-                  <div class="mdp">Mot de passe oublié <a class="here" href="">ici</a></div>
-                </div>
+                <form method="POST">
+                    <div class="email">
+                        <label class="info" for="email">EMAIL</label>
+                        <input class="input-email" placeholder="exemple@gmail.com" type="email" id="email" name="email">
+                    </div>
+                    <br>
+                    <div class="change-mdp">
+                        <label class="info" for="option">MOT DE PASSE</label>
+                        <input class="input-password" placeholder="mot de passe" type="password" id="password"
+                            name="password">
+                    </div>
+                    <br>
+                    <br>
+                    <div class="boutton">
+                        <button class="submit" type="submit" href="http://localhost:8000/user/login">CONNEXION</button>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="option">
+                        <div class="account">
+                            <div class="link" href="">Créer un compte &ensp; </div>
+                        </div>
+                        <div class="seperate"></div>
+                        <div class="password">
+                            <div class="link" href=""> &ensp; Mot de passe oublié ?</div>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <hr size="5" color="#000000">
             <div class="logo">
-                <img src="../img/Logo togoodtolive.png">
+                <!-- <div class="logo-profil"></div> -->
+                <img src="/img/big-logo.png" class="logo-profil">
+            </div>
+            <div class="spacebar">
+                <div class="bar"></div>
             </div>
         </div>
-        <p class="ps"><a class="redirect" href="">Profiter du site</a></p>
-        <P class="sc"><a class="redirect" href="">sans compte</a></P>  
     </div>
 </body>
+
 </html>
