@@ -34,8 +34,8 @@ module.exports = function (app) {
         if(req.body.email != undefined && req.body.password !=undefined){
             let userEmail = serviceController.login(req.body)//req body objet qu'on recup
             userEmail.then((response) => {
-                if (response.error != undefined) {
-                    res.status(200)
+                if (response.error == undefined) {
+                    res.status(200).send('')
                 } else {
                     res.status(404).send(response)
                 }
@@ -50,11 +50,11 @@ module.exports = function (app) {
         }
     })
 
-    app.delete('/user/delete/:userId',(req, res) =>{
+    app.delete('/user/:userId',(req, res) =>{
         let userDelete = serviceController.Delete(req.params.userId)
         userDelete.then((response)=>{
             if (response.error == undefined) {
-                res.status(200).send(response)
+                res.status(200).send()
             } else {
                 res.status(404).send(response)
             }
