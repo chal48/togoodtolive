@@ -22,19 +22,19 @@ module.exports = function (app) {
         })
     })
 
-    app.post('/user/:userId', (req, res) => {
-        let user = serviceController.getUserById(req.params.userId)
-        user.then((response) => {
-            if (response.error != undefined){
-                res.status(200).send(response)
-            }else{
-                res.status(404).send(response)
-            }
-        })
-        .catch((error) => {
-            res.status(502).send(error)
-        })
-    })
+    // app.post('/user/:userId', (req, res) => {
+    //     let user = serviceController.getUserById(req.params.userId)
+    //     user.then((response) => {
+    //         if (response.error != undefined){
+    //             res.status(200).send(response)
+    //         }else{
+    //             res.status(404).send(response)
+    //         }
+    //     })
+    //     .catch((error) => {
+    //         res.status(502).send(error)
+    //     })
+    // })
 
     app.patch('/user/:userId', (req, res) => {
         let user = serviceController.patchUser(req.params.userId, req.body)
@@ -59,7 +59,7 @@ module.exports = function (app) {
     app.post('/user/login', (req, res) => {
         if(req.body.email != undefined && req.body.password !=undefined){
             let userEmail = serviceController.login(req.body)//req body objet qu'on recup
-            userEmail.then((response) => {
+            userEmail.then((response) => {  
                 if (response.error == undefined) {
                     res.status(200).send('')
                 } else {
