@@ -200,7 +200,7 @@ body {
         margin-top: 15px;
         position: absolute;
         left: 50;
-        height: 6px;
+        height: 1px;
         width: 500px;
     }
 
@@ -210,7 +210,7 @@ body {
         margin-top: 15px;
         position: absolute;
         left: 50;
-        height: 6px;
+        height: 1px;
         width: 300px;
 
     }
@@ -235,7 +235,7 @@ body {
         margin-left: 45px;
         position: absolute;
         left: 50;
-        height: 6px;
+        height: 1px;
         width: 300px;
 
     }
