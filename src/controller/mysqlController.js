@@ -267,5 +267,6 @@ module.exports= {
     insertPost,
     getPostById,
     deletePostById,
-    patchPost
+    patchPost,
+    createUser
 }
