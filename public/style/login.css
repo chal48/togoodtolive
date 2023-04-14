@@ -5,11 +5,111 @@
 
 hr{
     transform: rotate(90deg);
-    width: 500px;
-    margin-top: 325px;
+    width: 100%;
+    margin-top: 24%;
     border-radius: 15px;
 }
 
-.global{
+.loggo{
     display: flex;
+}
+
+.log{
+    margin-top: 100px;
+    margin-left: 150px;
+    display: grid;
+    align-content: space-around;
+}
+
+::placeholder{
+    color: #ffffff;
+}
+
+.input {
+    border: none;
+    border-radius: 45px;
+    padding: 1em;
+    padding-right: 150px;
+    background-color: #BE8888;
+    transition: 300ms ease-in-out;
+  }
+  
+  .input:focus {
+    color: #ffffff;
+    background-color: #BE8888;
+    transform: scale(1.05);
+    box-shadow: 13px 13px 100px #ffffff,
+               -13px -13px 100px #ffffff;
+  }
+
+.connect{
+    margin-left: 70px;
+    font-size: 40px;
+    margin-top: 30px;
+}
+
+.mail{
+    font-size: x-large;
+    margin-top: 30px;
+}
+
+.password{
+    font-size: x-large;
+    margin-top: 30px;
+}
+
+.button{
+        color: #ffffff;
+        margin-left: 80px;
+        margin-top: 60px;
+        width: 150px;
+        height: 40px;
+        border: none;
+        border-radius: 45px;
+        transition: all 0.3s;
+        cursor: pointer;
+        background: #BE8888;
+        font-size: 1.2em;
+        font-weight: 550;
+        font-family: 'Montserrat', sans-serif;
+}
+
+.create{
+    margin-top: 15px;
+    margin-left: 80px;
+    display: grid;
+    align-content: space-around;
+}
+
+.mdp{
+    margin-top: 20px;
+}
+
+.account{
+    margin-top: 20px;
+}
+
+.ps{
+    font-size: x-large;
+    margin-top: 50px;
+    margin-left: 40%;
+}
+
+.sc{
+    font-size: x-large;
+    margin-left: 41%;
+}
+
+img{
+    margin-top: 25%;
+    margin-right: 200px;
+}
+
+.redirect{
+    color: #BE8888;
+    text-decoration: none;
+}
+
+.here{
+    color:#BE8888;
 }
