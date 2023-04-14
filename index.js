@@ -7,6 +7,7 @@ const routes = require('./src/routes/routes')
 
 app.use('/css/:filename', (req, res) =>{
     var filename = req.params.filename;
+    console.log(__dirname + '/public/style/' + filename)
     res.sendFile(__dirname + '/public/style/' + filename);
 });
 
