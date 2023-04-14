@@ -4,6 +4,7 @@ body {
     color: black;
     font-weight: 300;
 }
+
 h1{
     font-family: 'Kodchasan';
     color: black;
@@ -42,7 +43,7 @@ h1{
 }
 .data {
     margin-right: 30px;
-    margin-top: 90px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;

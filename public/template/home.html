@@ -24,19 +24,32 @@
             <div id="popup" class="popup">
                 <div class="popup-content">
                     <span class="close" onclick="closePopup()">&times;</span>
-                    <h2>Ajouter un bon plan</h2>
+                    <h1>AJOUTER UN BON PLAN</h1>
+                    <br>
                     <form>
-                        <label for="title">Titre :</label>
-                        <input type="text" id="title" name="title">
-                        <label for="location">Lieu :</label>
-                        <input type="text" id="location" name="location">
-                        <label for="price">Prix :</label>
-                        <input type="number" id="price" name="price">
-                        <button type="submit">Envoyer</button>
+                        <div class="add-post-popup">
+                            <div class="data-titre">
+                                <label class="titre" for="title">Titre : &ensp; </label>
+                                <input class="input-titre" type="text" placeholder="ex : 500 grammes de pates à seulement 2,50 euros " id="title" name="title">
+                            </div>
+                            <br>
+                            <div class="data-location">
+                                <label class="location" for="location">Lieu : &ensp; </label>
+                                <input class="input-location" type="text" placeholder="ex : Auchan de Montpellier City 69 rue du grand bain " id="location" name="location">
+                            </div>
+                            <br>
+                            <div class="data-price">
+                                <label class="prix" for="price">Prix : &ensp; </label>
+                                <input class="input-prix" type="number" placeholder="ex : 2,50" id="price" name="price">
+                            </div>
+                            <br>
+                                <br>
+                            <button class="submit" type="submit">AJOUTER</button>
+                        </div>
                     </form>
                 </div>
             </div>      
-        <img src="/img/Logonav.png" alt="Logo">   
+        <img src="/img/navbar-logo.png" alt="Logo">   
 		<a href="#">
             <img src="/img/Profil.png" alt="Profil">
         </a>           
@@ -46,7 +59,7 @@
         <input
           class="searchbar"
           type="text"
-          placeholder="Chercher ici . . ."
+          placeholder="RECHERCHER  . . ."
           name="search"
         />
         <button class="searchimg">
