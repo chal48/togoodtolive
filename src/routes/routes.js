@@ -59,7 +59,7 @@ module.exports = function (app) {
     app.post('/user/login', (req, res) => {
         if (req.body.email != undefined && req.body.password != undefined) {
             let userEmail = serviceController.login(req.body)//req body objet qu'on recup
-            userEmail.then((response) => {
+            userEmail.then((response) => {  
                 if (response.error == undefined) {
                     res.status(200).send('')
                 } else {
