@@ -35,7 +35,7 @@ body {
     position: absolute;
     left: 50;
     height: 500px;
-    width: 6px;
+    width: 1px;
     background: black;
     border-radius: 50px;
     /* margin-left: -40px; */
