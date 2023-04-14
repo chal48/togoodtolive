@@ -70,34 +70,6 @@ function Delete(userId){
     })
 }
 
-function getUserById(userId){
-    // Transforme en int pour vérifier que c'est bien un chiffre
-    userId = parseInt(userId)
-    let user = mysqlController.getUserById(userId)
-    return new Promise((resolve, reject) => {
-        user.then((user) => {
-            resolve(user)
-        })
-        .catch((error) => {
-            reject(error)
-        })
-    })
-}
-
-function getUserById(userId){
-    // Transforme en int pour vérifier que c'est bien un chiffre
-    userId = parseInt(userId)
-    let user = mysqlController.getUserById(userId)
-    return new Promise((resolve, reject) => {
-        user.then((user) => {
-            resolve(user)
-        })
-        .catch((error) => {
-            reject(error)
-        })
-    })
-}
-
 function patchUser(userId, userInformations) {
     userId = parseInt(userId)
     let email = userInformations.email
@@ -143,14 +115,66 @@ function getPostById(postId) {
     })
 }
 
+function insertPost(post){
+    let postinsert = mysqlController.insertPost(post)
+    return new Promise((resolve, reject) => {
+        postinsert.then((response) => {
+            resolve(response)
+        })
+        .catch((error) => {
+            reject(error)
+        })
+    })
+}
 
+function deletePostById(postId) {
+    postId = parseInt(postId)
+    let deletePost = mysqlController.deletePostById(postId)
+    return new Promise((resolve, reject)=>{
+        deletePost.then((response)=>{
+            resolve(response)
+        })
+        .catch((error)=>{
+            reject(error)
+        })
+    })
+}
+
+function patchPost(postId, postInformations) {
+    postId = parseInt(postId)
+    let post = mysqlController.patchPost(postId, postInformations)
+    return new Promise((resolve, reject) => {
+        post.then((post) => {
+            resolve(post)
+        })
+        .catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+function deletePostById(postId) {
+    postId = parseInt(postId)
+    let deletePost = mysqlController.deletePostById(postId)
+    return new Promise((resolve, reject)=>{
+        deletePost.then((response)=>{
+            resolve(response)
+        })
+        .catch((error)=>{
+            reject(error)
+        })
+    })
+}
 
 module.exports= {
     makeFixtures,
     getUserById,
     patchUser,
     login,
+    insertPost,
     getAllPosts,
     Delete,
-    getPostById
+    getPostById,
+    deletePostById,
+    patchPost
 }
