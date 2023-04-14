@@ -29,5 +29,4 @@ toujours dans le terminal taper la commande :
 ## Etape 7
 vous etes maintenant dans le terminal connecter au container srv (serveur node)
 taper les commandes :
-`npm i`
-`npm run start`
+`npm i` puis `npm run start`
