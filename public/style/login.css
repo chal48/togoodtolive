@@ -1,0 +1,15 @@
+*{
+  margin: 0;
+  padding: 0;  
+}
+
+hr{
+    transform: rotate(90deg);
+    width: 500px;
+    margin-top: 325px;
+    border-radius: 15px;
+}
+
+.global{
+    display: flex;
+}
