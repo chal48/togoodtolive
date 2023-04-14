@@ -70,34 +70,6 @@ function Delete(userId){
     })
 }
 
-function getUserById(userId){
-    // Transforme en int pour vérifier que c'est bien un chiffre
-    userId = parseInt(userId)
-    let user = mysqlController.getUserById(userId)
-    return new Promise((resolve, reject) => {
-        user.then((user) => {
-            resolve(user)
-        })
-        .catch((error) => {
-            reject(error)
-        })
-    })
-}
-
-function getUserById(userId){
-    // Transforme en int pour vérifier que c'est bien un chiffre
-    userId = parseInt(userId)
-    let user = mysqlController.getUserById(userId)
-    return new Promise((resolve, reject) => {
-        user.then((user) => {
-            resolve(user)
-        })
-        .catch((error) => {
-            reject(error)
-        })
-    })
-}
-
 function patchUser(userId, userInformations) {
     userId = parseInt(userId)
     let email = userInformations.email
@@ -118,6 +90,44 @@ function patchUser(userId, userInformations) {
     })
 }
 
+function getAllPosts() {
+    let posts = mysqlController.getAllPosts()
+    return new Promise((resolve, reject) => {
+        posts.then((posts) => {
+            resolve(posts)
+        })
+        .catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+function getPostById(postId) {
+    postId = parseInt(postId)
+    let post = mysqlController.getPostById(postId)
+    return new Promise((resolve, reject) => {
+        post.then((post) => {
+            resolve(post)
+        })
+        .catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+function deletePostById(postId) {
+    postId = parseInt(postId)
+    let deletePost = mysqlController.deletePostById(postId)
+    return new Promise((resolve, reject)=>{
+        deletePost.then((response)=>{
+            resolve(response)
+        })
+        .catch((error)=>{
+            reject(error)
+        })
+    })
+}
+
 
 
 module.exports= {
@@ -125,5 +135,8 @@ module.exports= {
     getUserById,
     patchUser,
     login,
-    Delete
+    getAllPosts,
+    Delete,
+    getPostById,
+    deletePostById
 }

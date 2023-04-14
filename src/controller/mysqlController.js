@@ -120,11 +120,61 @@ function Delete(userId){
     })
 }
 
+function getAllPosts() {
+    return new Promise((resolve, reject) => {
+        SQLRequest(`SELECT * FROM posts`)
+        .then((request)=>{
+            if (request != undefined){
+                let posts = request
+                resolve(posts)
+            }else{
+                resolve({
+                    "error" : "No post found"
+                })
+            }
+        })
+    })
+}
+
+function getPostById(postId) {
+    return new Promise((resolve, reject) => {
+        SQLRequest(`SELECT * FROM posts WHERE id = ${postId}`)
+        .then((request)=>{
+            if (request[0] != undefined){
+                let post = request[0]
+                resolve(post)
+            }else{
+                resolve({
+                    "error" : "No post found with id : "+ postId
+                })
+            }
+        })
+    })
+}
+
+function deletePostById(postId) {
+    return new Promise((resolve, reject) =>{
+        SQLRequest(`DELETE FROM posts WHERE id = "${postId}"`)
+        .then((request)=>{
+            if (request.affectedRows != 0){
+                resolve({})
+            }else{
+                resolve({
+                    "error" : "Can not delete the post with the id :" + postId
+                })
+            }
+        })
+    })
+}
+
 module.exports= {
     getAllUsers,
     patchUser,
+    getAllPosts,
     createPost,
     getUserById,
     login,
-    Delete
+    Delete,
+    getPostById,
+    deletePostById
 }
