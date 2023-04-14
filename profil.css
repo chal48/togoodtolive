@@ -51,13 +51,13 @@ body {
 .info{
     margin-left: 15px;
 }
-.lastname {
+.conf-mdp {
     font-family: 'Kodchasan';
     color: black;
     font-weight: 100;
 }
 
-.input-lastname {
+.input-confmdp {
     padding-left: 15px;
     margin-top: 5px;
     display: flex;
@@ -75,49 +75,19 @@ body {
     background-color: #BE8888;
     cursor: text;
 }
-.input-lastname::placeholder {
+.input-conf-mdp::placeholder {
     font-family: 'Kodchasan';
     font-style: normal;
     color: #f0e1e1;
   }
 
-.name {
+.change-mdp {
     font-family: 'Kodchasan';
     color: black;
     font-weight: 100;
 }
 
-.input-name {
-    padding-left: 15px;
-    margin-top: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50px;
-    border: none;
-    width: 350px;
-    height: 40px;
-    font-family: 'Kodchasan';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 15px;
-    color: #ffffff;
-    background-color: #BE8888;
-    cursor: text;
-}
-.input-name::placeholder {
-    font-family: 'Kodchasan';
-    font-style: normal;
-    color: #f0e1e1;
-  }
-
-.user {
-    font-family: 'Kodchasan';
-    color: black;
-    font-weight: 100;
-}
-
-.input-user {
+.input-password {
     padding-left: 15px;
     margin-top: 5px;
     display: flex;
