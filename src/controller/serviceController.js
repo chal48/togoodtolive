@@ -1,5 +1,6 @@
 const { faker } = require('@faker-js/faker');
 const mysqlController = require('./mysqlController')
+const emailRegexp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
 function makeFixtures() {
     let randomUser = Math.floor(Math.random() * (30 - 20)) + 20
@@ -98,10 +99,17 @@ function getUserById(userId){
 
 function patchUser(userId, userInformations) {
     userId = parseInt(userId)
+    let email = userInformations.email
     let user = mysqlController.patchUser(userId, userInformations)
     return new Promise((resolve, reject) => {
         user.then((user) => {
-            resolve(user)
+            if (emailRegexp.test(email)) {
+                resolve(user)
+            } else {
+                resolve({
+                    "error" : "Invalid email address"
+                })
+            }
         })
         .catch((error) => {
             reject(error)
