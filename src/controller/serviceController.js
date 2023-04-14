@@ -117,6 +117,31 @@ function patchUser(userId, userInformations) {
     })
 }
 
+function getAllPosts() {
+    let posts = mysqlController.getAllPosts()
+    return new Promise((resolve, reject) => {
+        posts.then((posts) => {
+            resolve(posts)
+        })
+        .catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+function getPostById(postId) {
+    postId = parseInt(postId)
+    let post = mysqlController.getPostById(postId)
+    return new Promise((resolve, reject) => {
+        post.then((post) => {
+            resolve(post)
+        })
+        .catch((error) => {
+            reject(error)
+        })
+    })
+}
+
 
 
 module.exports= {
@@ -124,5 +149,7 @@ module.exports= {
     getUserById,
     patchUser,
     login,
-    Delete
+    getAllPosts,
+    Delete,
+    getPostById
 }
