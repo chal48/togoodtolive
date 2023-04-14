@@ -115,6 +115,18 @@ function getPostById(postId) {
     })
 }
 
+function insertPost(post){
+    let postinsert = mysqlController.insertPost(post)
+    return new Promise((resolve, reject) => {
+        postinsert.then((response) => {
+            resolve(response)
+        })
+        .catch((error) => {
+            reject(error)
+        })
+    })
+}
+
 function deletePostById(postId) {
     postId = parseInt(postId)
     let deletePost = mysqlController.deletePostById(postId)
@@ -146,6 +158,7 @@ module.exports= {
     getUserById,
     patchUser,
     login,
+    insertPost,
     getAllPosts,
     Delete,
     getPostById,

@@ -17,9 +17,9 @@ module.exports = function (app) {
                 res.status(404).send(response)
             }
         })
-        .catch((error) => {
-            res.status(502).send(error)
-        })
+            .catch((error) => {
+                res.status(502).send(error)
+            })
     })
 
     // app.post('/user/:userId', (req, res) => {
@@ -133,8 +133,29 @@ module.exports = function (app) {
                 res.status(404).send(response)
             }
         })
-        .catch((error) => {
-            res.status(502).send(error)
-        })
+            .catch((error) => {
+                res.status(502).send(error)
+            })
     })
+
+    app.post('/post/', (req, res) => {
+        if (req.body.title != undefined && req.body.content != undefined && req.body.startDate != undefined && req.body.startPrice != undefined && req.body.userId != undefined) {
+            let postInsert = serviceController.insertPost(req.body)//req body objet qu'on recup
+            postInsert.then((response) => {
+                if (response.error == undefined) {
+                    res.status(200).send('')
+                } else {
+                    res.status(404).send(response)
+                }
+            })
+                .catch((error) => {
+                    res.status(502).send(error)
+                })
+        } else {
+            res.status(400).send({
+                "error": "invalid parameters"
+            })
+        }
+    })
+
 }
