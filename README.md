@@ -24,9 +24,12 @@ ouvrir un terminal et se possitionner dans le dossier du projet
 dans le terminal taper la commande : 
 `docker-compose up -d`
 ## Etape 6
+sur votre nagiteur aller à l'url localhost:8080. Connecter vous avec id : root | mdp : root  
+constater la base de donnée togooddb, aller sur celle-ci et importer un fichier, sélection le fichier `togooddb.sql` présent à la racine du projet
+## Etape 7
 toujours dans le terminal taper la commande :
 `docker exec -it svr /bin/bash`
-## Etape 7
+## Etape 8
 vous etes maintenant dans le terminal connecter au container srv (serveur node)
 taper les commandes :
 `npm i` puis `npm run start`
