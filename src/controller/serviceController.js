@@ -143,6 +143,19 @@ function getPostById(postId) {
     })
 }
 
+function deletePostById(postId) {
+    postId = parseInt(postId)
+    let deletePost = mysqlController.deletePostById(postId)
+    return new Promise((resolve, reject)=>{
+        deletePost.then((response)=>{
+            resolve(response)
+        })
+        .catch((error)=>{
+            reject(error)
+        })
+    })
+}
+
 
 
 module.exports= {
@@ -152,5 +165,6 @@ module.exports= {
     login,
     getAllPosts,
     Delete,
-    getPostById
+    getPostById,
+    deletePostById
 }
