@@ -182,4 +182,8 @@ module.exports = function (app) {
             }
         })
     })
+
+    app.get('/profil', (req, res) => {
+        res.sendFile('/template/profil.html', { root: './public' })
+    })
 }
