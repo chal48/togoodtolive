@@ -1,16 +1,27 @@
 const express = require('express')
+const mysql = require("mysql2")
 const app = express()
 const port = 8000
-app.use('/css', express.static(__dirname + '/public/style/style.css'));
 
-app.get('/api', (req, res) => {
-    res.send('Hello World!')
-})
+const routes = require('./src/routes/routes')
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/template/home.html')
-})
+app.use('/css/:filename', (req, res) =>{
+    var filename = req.params.filename;
+    res.sendFile(__dirname + '/public/style/' + filename);
+});
+
+app.use('/img/:filename', (req, res) =>{
+    var filename = req.params.filename;
+    res.sendFile(__dirname + '/public/img/' + filename);
+});
+
+app.use('/js/:filename', (req, res) =>{
+    var filename = req.params.filename;
+    res.sendFile(__dirname + '/public/script/' + filename);
+});
+
+routes(app)
 
 app.listen(port, () => {
-    console.log(`http://localhost:${port}/api`)
+    console.log(`Serveur lancé sur http://localhost:${port}/`)
 })
