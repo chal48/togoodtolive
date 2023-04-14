@@ -25,7 +25,7 @@ function getAllUsers(){
 
 function createUser(user){
     return new Promise(function(resolve, reject) {
-        if (user.email != null && user.password != null && isInDB){
+        if (user.email != null && user.password != null){
             SQLRequest(`INSERT INTO users (email, password) VALUES ("${user.email}", "${user.password}")`)
             .then((request)=>{
                 if (request.affectedRows != 0){
@@ -60,19 +60,19 @@ function createPost(post){
     }
 }
 
-// function isUserInDB(email){
-//     return new Promise((resolve, reject)=>{
-//         let isUserInDB = SQLRequest(`SELECT id FROM users WHERE email = "${email}"`)
-//         isUserInDB
-//         .then((request)=>{
-//             if (request.length == 0){
-//                 resolve(false)
-//             } else {
-//                 resolve(true)
-//             }
-//         })
-//     })
-// }
+function isUserInDB(email){
+    return new Promise((resolve, reject)=>{
+        let isUserInDB = SQLRequest(`SELECT id FROM users WHERE email = "${email}"`)
+        isUserInDB
+        .then((request)=>{
+            if (request.length == 0){
+                resolve(false)
+            } else {
+                resolve(true)
+            }
+        })
+    })
+}
 
 function getUserById(userId){
     return new Promise((resolve, reject) => {
