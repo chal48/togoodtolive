@@ -1,0 +1,278 @@
+body {
+    background-color: white;
+    font-family: 'Kodchasan';
+    color: black;
+    font-weight: 100;
+}
+
+.info-profil {
+    display: flex;
+    justify-content: space-around;
+}
+
+.logo {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    margin-left: -60px;
+}
+
+.logo-profil {
+    width: 509px;
+    height: 363px;
+    /* border: 1px solid black; */
+}
+
+.spacebar {
+    display: flex;
+    position: absolute;
+    left: 50;
+    justify-content: center;
+}
+
+.bar {
+    margin-top: 25px;
+    position: absolute;
+    left: 50;
+    height: 500px;
+    width: 1px;
+    background: black;
+    border-radius: 50px;
+    /* margin-left: -40px; */
+}
+
+.data {
+    margin-right: 30px;
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.info{
+    margin-left: 15px;
+}
+.conf-mdp {
+    font-family: 'Kodchasan';
+    color: black;
+    font-weight: 100;
+}
+
+.input-confmdp {
+    padding-left: 15px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    border: none;
+    width: 350px;
+    height: 40px;
+    font-family: 'Kodchasan';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #BE8888;
+    cursor: text;
+}
+.input-confmdp::placeholder {
+    font-family: 'Kodchasan';
+    font-style: normal;
+    color: #f0e1e1;
+  }
+
+.change-mdp {
+    font-family: 'Kodchasan';
+    color: black;
+    font-weight: 100;
+}
+
+.input-password {
+    padding-left: 15px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    border: none;
+    width: 350px;
+    height: 40px;
+    font-family: 'Kodchasan';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #BE8888;
+    cursor: text;
+}
+.input-password::placeholder {
+    font-family: 'Kodchasan';
+    font-style: normal;
+    color: #f0e1e1;
+  }
+
+.email {
+    font-family: 'Kodchasan';
+    color: black;
+    font-weight: 100;
+}
+
+.input-email {
+    padding-left: 15px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    border: none;
+    width: 350px;
+    height: 40px;
+    font-family: 'Kodchasan';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    color: #ffffff;
+    background-color: #BE8888;
+    cursor: text;
+}
+.input-email::placeholder {
+    font-family: 'Kodchasan';
+    font-style: normal;
+    color: #f0e1e1;
+  }
+  .boutton {
+    font-family: 'Kodchasan';
+    color: black;
+    font-weight: 100;
+}
+  .submit {
+    border: 1px solid #BE8888;
+    padding-left: 15px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    width: 370px;
+    height: 40px;
+    font-family: 'Kodchasan';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    color: #BE8888;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+.submit:hover{
+    color: #fff;
+    background-color: #BE8888;
+    border: none;
+
+}
+  @media screen and (max-width: 1024px) {
+    .logo-profil {
+        width: 409px;
+        height: 263px;
+        margin-left: 50px;
+    }
+  }
+  @media screen and (max-width: 821px){
+    .data{
+        margin-left: 30px;
+    }
+  }
+  @media screen and (max-width: 768px){
+    .info-profil {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .data{
+        margin-top: 150px;
+    }
+    .logo-profil {
+        width: 409px;
+        height: 263px;
+        margin-left: 50px;
+    }
+    .bar {
+        margin-top: 15px;
+        position: absolute;
+        left: 50;
+        height: 6px;
+        width: 500px;
+    }
+
+  }
+  @media screen and (max-width: 426px){
+    .bar {
+        margin-top: 15px;
+        position: absolute;
+        left: 50;
+        height: 6px;
+        width: 300px;
+
+    }
+    .data{
+        margin-left: 30px;
+    }
+
+  }
+  @media screen and (max-width: 376px){
+    .data{
+        margin-right: 20px;
+    }
+  }
+  @media screen and (max-width: 321px){
+    .logo-profil {
+        width: 215px;
+        height: 153px;
+        margin-left: 100px;
+    }
+    .bar {
+        margin-top: -70px;
+        margin-left: 45px;
+        position: absolute;
+        left: 50;
+        height: 6px;
+        width: 300px;
+
+    }
+    .data{
+        margin-bottom: 55px;
+        margin-right: -10px;
+    }
+    .input-password{
+        width: 330px;
+    }
+    .input-confmdp{
+        width: 330px;
+    }
+
+    .input-email {
+        width: 330px;
+    }
+    .submit{
+        width: 330px;
+    } 
+
+  }
+  @media screen and (max-width: 281px){
+    .data{
+        margin-left: 20px;
+    }
+    .input-email{
+        width: 250px;
+    }
+    .input-confmdp{
+        width: 250px;
+    }
+    .input-password{
+        width: 250px;
+    }
+    .submit{
+        width: 250px;
+    }
+
+  }
