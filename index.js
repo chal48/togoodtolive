@@ -1,8 +1,9 @@
 const express = require('express')
 const mysql = require("mysql2")
 const app = express()
-const port = 8000
+const port = 8001
 const routes = require('./src/routes/routes')
+
 const bodyParser = require('body-parser')
 
 app.use(bodyParser.urlencoded({ extended: true }))
