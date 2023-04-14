@@ -38,8 +38,6 @@ module.exports = function(app){
     app.post('/register', (req, res) => {
         let user = serviceController.createUser(req.body)
         user.then((response) => {
-            console.log(response)
-            console.log(response.error != undefined)
             if (response.error == undefined) {
                 res.status(204).send(response)
             } else {

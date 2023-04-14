@@ -53,7 +53,6 @@ function createUser(userInformations) {
     })
 }
 
-
 module.exports= {
     makeFixtures,
     getUserById,

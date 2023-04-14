@@ -24,31 +24,23 @@ function getAllUsers(){
 }
 
 function createUser(user){
-    let userExist = isUserInDB(user.email)
-    userExist
-    .then((isInDB)=>{
-        console.log(user)
-        return new Promise(function(resolve, reject) {
-            if (user.email != null && user.password != null && isInDB){
-                SQLRequest(`INSERT INTO users (email, password) VALUES ("${user.email}", "${user.password}")`)
-                .then((request)=>{
-                    if (request.affectedRows != 0){
-                        console.log('created')
-                        resolve({})
-                    }else{
-                        console.log('error')
-                        resolve({
-                            "error" : "Unable to create user"
-                        })
-                    }
-                })
-            }else{
-                console.log('already created')
-                resolve({
-                    "error" : "User already exists"
-                })
-            }
-        })
+    return new Promise(function(resolve, reject) {
+        if (user.email != null && user.password != null && isInDB){
+            SQLRequest(`INSERT INTO users (email, password) VALUES ("${user.email}", "${user.password}")`)
+            .then((request)=>{
+                if (request.affectedRows != 0){
+                    resolve({})
+                }else{
+                    resolve({
+                        "error" : "Unable to create user"
+                    })
+                }
+            })
+        }else{
+            resolve({
+                "error" : "User already exists"
+            })
+        }
     })
 }
 
@@ -68,22 +60,19 @@ function createPost(post){
     }
 }
 
-function isUserInDB(username){
-    return new Promise((resolve, reject)=>{
-        let usernameSanitized = databaseModel.connection.escape(username)
-        let isUserInDB = SQLRequest(`SELECT id FROM users WHERE email = ${usernameSanitized}`)
-        isUserInDB
-        .then((request)=>{
-            if (request.length == 0){
-                console.log(true)
-                resolve(false)
-            } else {
-                console.log(false)
-                resolve(true)
-            }
-        })
-    })
-}
+// function isUserInDB(email){
+//     return new Promise((resolve, reject)=>{
+//         let isUserInDB = SQLRequest(`SELECT id FROM users WHERE email = "${email}"`)
+//         isUserInDB
+//         .then((request)=>{
+//             if (request.length == 0){
+//                 resolve(false)
+//             } else {
+//                 resolve(true)
+//             }
+//         })
+//     })
+// }
 
 function getUserById(userId){
     return new Promise((resolve, reject) => {
