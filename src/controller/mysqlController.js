@@ -122,7 +122,6 @@ function Delete(userId){
 
 module.exports= {
     getAllUsers,
-    createUser,
     patchUser,
     createPost,
     getUserById,
