@@ -11,7 +11,7 @@ module.exports = function (app) {
     app.get('/user/:userId', (req, res) => {
         let user = serviceController.getUserById(req.params.userId)
         user.then((response) => {
-            if (response.error != undefined) {
+            if (response.error == undefined) {
                 res.status(200).send(response)
             } else {
                 res.status(404).send(response)
