@@ -8,7 +8,17 @@ module.exports = function(app){
     })
 
     app.get('/user/:userId', (req, res) => {
-        res.send('Page d\'accueil')
+        let user = serviceController.getUserById(req.params.userId)
+        user.then((response) => {
+            if (response.error != undefined){
+                res.status(200).send(response)
+            }else{
+                res.status(404).send(response)
+            }
+        })
+        .catch((error) => {
+            res.status(502).send(error)
+        })
     })
 
     app.get('/', (req, res) => {
@@ -19,4 +29,5 @@ module.exports = function(app){
         serviceController.makeFixtures()
         res.send('finished')
     })
+
 }
