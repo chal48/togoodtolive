@@ -40,8 +40,22 @@ function getUserById(userId){
     })
 }
 
+function createUser(userInformations) {
+    let user = mysqlController.createUser(userInformations)
+
+    return new Promise((resolve, reject) => {
+        user.then((response) => {
+            resolve(response)
+        })
+        .catch((error) => {
+            reject(error)
+        })
+    })
+}
+
 
 module.exports= {
     makeFixtures,
-    getUserById
+    getUserById,
+    createUser
 }

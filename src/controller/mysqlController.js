@@ -24,16 +24,32 @@ function getAllUsers(){
 }
 
 function createUser(user){
-    if (user.email != null && user.password != null && isUserInDB(user.email)){
-        SQLRequest(`INSERT INTO users (email, password) VALUES ("${user.email}", "${user.password}")`)
-        .then((request)=>{
-            if (request.affectedRows != 0){
-                return
+    let userExist = isUserInDB(user.email)
+    userExist
+    .then((isInDB)=>{
+        console.log(user)
+        return new Promise(function(resolve, reject) {
+            if (user.email != null && user.password != null && isInDB){
+                SQLRequest(`INSERT INTO users (email, password) VALUES ("${user.email}", "${user.password}")`)
+                .then((request)=>{
+                    if (request.affectedRows != 0){
+                        console.log('created')
+                        resolve({})
+                    }else{
+                        console.log('error')
+                        resolve({
+                            "error" : "Unable to create user"
+                        })
+                    }
+                })
             }else{
-                console.log('nope')
+                console.log('already created')
+                resolve({
+                    "error" : "User already exists"
+                })
             }
         })
-    }
+    })
 }
 
 function createPost(post){
@@ -52,14 +68,21 @@ function createPost(post){
     }
 }
 
-async function isUserInDB(username){
-    let usernameSanitized = databaseModel.connection.escape(username)
-    let isUserInDB = await SQLRequest(`SELECT id FROM users WHERE email = ${usernameSanitized}`)
-    if (isUserInDB.length == 0){
-        return false
-    }else{
-        return true
-    }
+function isUserInDB(username){
+    return new Promise((resolve, reject)=>{
+        let usernameSanitized = databaseModel.connection.escape(username)
+        let isUserInDB = SQLRequest(`SELECT id FROM users WHERE email = ${usernameSanitized}`)
+        isUserInDB
+        .then((request)=>{
+            if (request.length == 0){
+                console.log(true)
+                resolve(false)
+            } else {
+                console.log(false)
+                resolve(true)
+            }
+        })
+    })
 }
 
 function getUserById(userId){

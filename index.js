@@ -4,6 +4,9 @@ const app = express()
 const port = 8000
 
 const routes = require('./src/routes/routes')
+const bodyParser = require('body-parser')
+
+app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use('/css/:filename', (req, res) =>{
     var filename = req.params.filename;
