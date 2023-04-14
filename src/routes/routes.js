@@ -17,9 +17,9 @@ module.exports = function (app) {
                 res.status(404).send(response)
             }
         })
-            .catch((error) => {
-                res.status(502).send(error)
-            })
+        .catch((error) => {
+            res.status(502).send(error)
+        })
     })
 
     // app.post('/user/:userId', (req, res) => {
