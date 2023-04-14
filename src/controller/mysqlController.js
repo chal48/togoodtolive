@@ -62,8 +62,26 @@ async function isUserInDB(username){
     }
 }
 
+function getUserById(userId){
+    return new Promise((resolve, reject) => {
+        SQLRequest(`SELECT * FROM users WHERE id = ${userId}`)
+        .then((request)=>{
+            //vérifie si la requete quelequechose
+            if (request[0] != undefined){
+                let user = request[0]
+                resolve(user)
+            }else{
+                resolve({
+                    "error" : "No users found with id : "+ userId
+                })
+            }
+        })
+    })
+}
+
 module.exports= {
     getAllUsers,
     createUser,
-    createPost
+    createPost,
+    getUserById
 }
