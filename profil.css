@@ -75,7 +75,7 @@ body {
     background-color: #BE8888;
     cursor: text;
 }
-.input-conf-mdp::placeholder {
+.input-confmdp::placeholder {
     font-family: 'Kodchasan';
     font-style: normal;
     color: #f0e1e1;
@@ -105,7 +105,7 @@ body {
     background-color: #BE8888;
     cursor: text;
 }
-.input-user::placeholder {
+.input-password::placeholder {
     font-family: 'Kodchasan';
     font-style: normal;
     color: #f0e1e1;
@@ -140,11 +140,45 @@ body {
     font-style: normal;
     color: #f0e1e1;
   }
+  .boutton {
+    font-family: 'Kodchasan';
+    color: black;
+    font-weight: 100;
+}
+  .submit {
+    border: 1px solid #BE8888;
+    padding-left: 15px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    width: 370px;
+    height: 40px;
+    font-family: 'Kodchasan';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    color: #BE8888;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+.submit:hover{
+    color: #fff;
+    background-color: #BE8888;
+    border: none;
+
+}
   @media screen and (max-width: 1024px) {
     .logo-profil {
         width: 409px;
         height: 263px;
         margin-left: 50px;
+    }
+  }
+  @media screen and (max-width: 821px){
+    .data{
+        margin-left: 30px;
     }
   }
   @media screen and (max-width: 768px){
@@ -209,9 +243,36 @@ body {
         margin-bottom: 55px;
         margin-right: -10px;
     }
+    .input-password{
+        width: 330px;
+    }
+    .input-confmdp{
+        width: 330px;
+    }
 
     .input-email {
         width: 330px;
+    }
+    .submit{
+        width: 330px;
+    } 
+
+  }
+  @media screen and (max-width: 281px){
+    .data{
+        margin-left: 20px;
+    }
+    .input-email{
+        width: 250px;
+    }
+    .input-confmdp{
+        width: 250px;
+    }
+    .input-password{
+        width: 250px;
+    }
+    .submit{
+        width: 250px;
     }
 
   }
