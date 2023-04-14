@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `posts`;
 CREATE TABLE IF NOT EXISTS `posts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tilte` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
   `start_date` datetime NOT NULL,
   `end_date` datetime DEFAULT NULL,
   `content` text NOT NULL,
