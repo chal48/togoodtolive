@@ -96,7 +96,6 @@ function login(email){
 }
 
 function Delete(userId){
-    console.log(userId)
     return new Promise((resolve, reject) =>{
         SQLRequest(`DELETE FROM users WHERE id = "${userId}"`)
         .then((request)=>{
