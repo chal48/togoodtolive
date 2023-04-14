@@ -186,4 +186,12 @@ module.exports = function (app) {
     app.get('/profil', (req, res) => {
         res.sendFile('/template/profil.html', { root: './public' })
     })
+
+    app.get('/login', (req, res) => {
+        res.sendFile('/template/login.html', { root: './public' })
+    })
+
+    app.get('/create', (req, res) => {
+        res.sendFile('/template/create.html', { root: './public' })
+    })
 }
