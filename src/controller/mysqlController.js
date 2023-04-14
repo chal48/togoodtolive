@@ -39,35 +39,6 @@ function patchUser(userId, user) {
     })
 }
 
-function createUser(user){
-    let userExist = isUserInDB(user.email)
-    userExist
-    .then((isInDB)=>{
-        console.log(user)
-        return new Promise(function(resolve, reject) {
-            if (user.email != null && user.password != null && isInDB){
-                SQLRequest(`INSERT INTO users (email, password) VALUES ("${user.email}", "${user.password}")`)
-                .then((request)=>{
-                    if (request.affectedRows != 0){
-                        console.log('created')
-                        resolve({})
-                    }else{
-                        console.log('error')
-                        resolve({
-                            "error" : "Unable to create user"
-                        })
-                    }
-                })
-            }else{
-                console.log('already created')
-                resolve({
-                    "error" : "User already exists"
-                })
-            }
-        })
-    })
-}
-
 function createPost(post){
     if (post.title != null && post.startDate != null && post.startPrice && post.userId != null && post.content != null){
         let titleSanitized = databaseModel.connection.escape(post.title)
@@ -120,7 +91,6 @@ function getUserById(userId){
 
 module.exports= {
     getAllUsers,
-    createUser,
     createPost,
     getUserById,
     patchUser

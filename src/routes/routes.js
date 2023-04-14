@@ -46,21 +46,6 @@ module.exports = function(app){
         })
     })
 
-    app.post('/register', (req, res) => {
-        let user = serviceController.createUser(req.body)
-        user.then((response) => {
-            console.log(response.error != undefined)
-            if (response.error == undefined) {
-                res.status(204).send(response)
-            } else {
-                res.status(404).send(response)
-            }
-        })
-        // .catch((error) => {
-        //     res.status(502).send(error)
-        // })
-    })
-
     app.get('/', (req, res) => {
         res.sendFile('/template/home.html', {root: './public' })
     })
