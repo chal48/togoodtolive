@@ -1,12 +1,14 @@
 const { faker } = require('@faker-js/faker');
 const mysqlController = require('./mysqlController')
 
-function makeFixtures(){
+const emailRegexp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+
+function makeFixtures() {
     let randomUser = Math.floor(Math.random() * (30 - 20)) + 20
-    for (let i = 1; i<randomUser; i++){
+    for (let i = 1; i < randomUser; i++) {
         let user = {
-            "email" : faker.internet.email(),
-            "password" : faker.internet.password()
+            "email": faker.internet.email(),
+            "password": faker.internet.password()
         }
         mysqlController.createUser(user)
         // for (let j = 1; Math.floor(Math.random() * (3 - 1)) + 1; j++){
@@ -26,6 +28,102 @@ function makeFixtures(){
     }
 }
 
+function getUserById(userId){
+    // Transforme en int pour vérifier que c'est bien un chiffre
+    userId = parseInt(userId)
+    let user = mysqlController.getUserById(userId)
+    return new Promise((resolve, reject) => {
+        user.then((user) => {
+            resolve(user)
+        })
+        .catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+function login(user){
+    let userPassword =mysqlController.login(user.email);
+    return new Promise((resolve, reject)=>{
+        userPassword.then((response)=>{ 
+            if(response.password == user.password){
+                resolve(response)
+            }else{
+                resolve({
+                    "error" : "the password and the email don't match"
+                })
+            }      
+        })        
+    })
+}
+
+function Delete(userId){
+    userId = parseInt(userId)
+    let deleteUser = mysqlController.Delete(userId)
+    return new Promise((resolve, reject)=>{
+        deleteUser.then((response)=>{
+            resolve(response)
+        })
+        .catch((error)=>{
+            reject(error)
+        })
+    })
+}
+
+function getUserById(userId){
+    // Transforme en int pour vérifier que c'est bien un chiffre
+    userId = parseInt(userId)
+    let user = mysqlController.getUserById(userId)
+    return new Promise((resolve, reject) => {
+        user.then((user) => {
+            resolve(user)
+        })
+        .catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+function getUserById(userId){
+    // Transforme en int pour vérifier que c'est bien un chiffre
+    userId = parseInt(userId)
+    let user = mysqlController.getUserById(userId)
+    return new Promise((resolve, reject) => {
+        user.then((user) => {
+            resolve(user)
+        })
+        .catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+function patchUser(userId, userInformations) {
+    userId = parseInt(userId)
+    let email = userInformations.email
+    let user = mysqlController.patchUser(userId, userInformations)
+    return new Promise((resolve, reject) => {
+        user.then((user) => {
+            if (emailRegexp.test(email)) {
+                resolve(user)
+            } else {
+                resolve({
+                    "error" : "Invalid email address"
+                })
+            }
+        })
+        .catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+
+
 module.exports= {
-    makeFixtures
+    makeFixtures,
+    getUserById,
+    patchUser,
+    login,
+    Delete
 }
