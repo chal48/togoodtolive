@@ -225,6 +225,22 @@ function deletePostById(postId) {
     })
 }
 
+function patchPost(postId, postInformations) {
+    return new Promise((resolve, reject) => {
+        SQLRequest(`UPDATE posts SET title = "${postInformations.title}", start_date = "${postInformations.start_date}", end_date = "${postInformations.end_date}", content = "${postInformations.content}", start_price = "${postInformations.start_price}", end_price = "${postInformations.end_price}", user_id = "${postInformations.user_id}" WHERE id = ${postId}`)
+        .then((request)=>{
+            if (request != undefined){
+                let user = request
+                resolve(user)
+            }else{
+                resolve({
+                    "error" : "No post found with id : "+ postId
+                })
+            }
+        })
+    })
+}
+
 function deletePostById(postId) {
     return new Promise((resolve, reject) =>{
         SQLRequest(`DELETE FROM posts WHERE id = "${postId}"`)
@@ -250,5 +266,6 @@ module.exports= {
     Delete,
     insertPost,
     getPostById,
-    deletePostById
+    deletePostById,
+    patchPost
 }
