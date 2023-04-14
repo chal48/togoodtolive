@@ -116,4 +116,18 @@ module.exports = function (app) {
             res.status(502).send(error)
         })
     })
+
+    app.delete('/post/:postId',(req, res) =>{
+        let deletePost = serviceController.deletePostById(req.params.postId)
+        deletePost.then((response)=>{
+            if (response.error == undefined) {
+                res.status(200).send()
+            } else {
+                res.status(404).send(response)
+            }
+        })
+        .catch((error) => {
+            res.status(502).send(error)
+        })
+    })
 }

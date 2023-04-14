@@ -152,6 +152,21 @@ function getPostById(postId) {
     })
 }
 
+function deletePostById(postId) {
+    return new Promise((resolve, reject) =>{
+        SQLRequest(`DELETE FROM posts WHERE id = "${postId}"`)
+        .then((request)=>{
+            if (request.affectedRows != 0){
+                resolve({})
+            }else{
+                resolve({
+                    "error" : "Can not delete the post with the id :" + postId
+                })
+            }
+        })
+    })
+}
+
 module.exports= {
     getAllUsers,
     patchUser,
@@ -160,5 +175,6 @@ module.exports= {
     getUserById,
     login,
     Delete,
-    getPostById
+    getPostById,
+    deletePostById
 }
