@@ -1,4 +1,5 @@
 const express = require('express')
+const mysql = require("mysql2")
 const app = express()
 const port = 8000
 const routes = require('./src/routes/routes')
@@ -28,3 +29,5 @@ routes(app)
 app.listen(port, () => {
     console.log(`Serveur lancé sur http://localhost:${port}/`)
 })
+
+
