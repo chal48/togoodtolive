@@ -27,7 +27,6 @@ function patchUser(userId, user) {
     return new Promise((resolve, reject) => {
         SQLRequest(`UPDATE users SET email = "${user.email}", password = "${user.password}" WHERE id = ${userId}`)
         .then((request)=>{
-            //vérifie si la requete quelequechose
             if (request != undefined){
                 let user = request
                 resolve(user)
