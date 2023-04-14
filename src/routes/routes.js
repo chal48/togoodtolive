@@ -100,28 +100,14 @@ module.exports = function (app) {
                     res.status(404).send(response)
                 }
             })
-                .catch((error) => {
-                    res.status(502).send(error)
-                })
+            .catch((error) => {
+                res.status(502).send(error)
+            })
         } else {
             res.status(400).send({
                 "error": "invalid parameters"
             })
         }
-    })
-
-    app.get('/post/:postId', (req, res) => {
-        let post = serviceController.getPostById(req.params.postId)
-        post.then((response) => {
-            if (response.error != undefined) {
-                res.status(200).send(response)
-            } else {
-                res.status(404).send(response)
-            }
-        })
-        .catch((error) => {
-            res.status(502).send(error)
-        })
     })
 
     app.get('/post/:postId', (req, res) => {
