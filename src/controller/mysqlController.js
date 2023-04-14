@@ -23,17 +23,20 @@ function getAllUsers(){
     
 }
 
-function createUser(user){
-    if (user.email != null && user.password != null && isUserInDB(user.email)){
-        SQLRequest(`INSERT INTO users (email, password) VALUES ("${user.email}", "${user.password}")`)
+function patchUser(userId, user) {
+    return new Promise((resolve, reject) => {
+        SQLRequest(`UPDATE users SET email = "${user.email}", password = "${user.password}" WHERE id = ${userId}`)
         .then((request)=>{
-            if (request.affectedRows != 0){
-                return
+            if (request != undefined){
+                let user = request
+                resolve(user)
             }else{
-                console.log('nope')
+                resolve({
+                    "error" : "No users found with id : "+ userId
+                })
             }
         })
-    }
+    })
 }
 
 function createPost(post){
@@ -52,14 +55,21 @@ function createPost(post){
     }
 }
 
-async function isUserInDB(username){
-    let usernameSanitized = databaseModel.connection.escape(username)
-    let isUserInDB = await SQLRequest(`SELECT id FROM users WHERE email = ${usernameSanitized}`)
-    if (isUserInDB.length == 0){
-        return false
-    }else{
-        return true
-    }
+function getUserById(userId){
+    return new Promise((resolve, reject) => {
+        SQLRequest(`SELECT * FROM users WHERE id = ${userId}`)
+        .then((request)=>{
+            //vérifie si la requete quelequechose
+            if (request[0] != undefined){
+                let user = request[0]
+                resolve(user)
+            }else{
+                resolve({
+                    "error" : "No users found with id : "+ userId
+                })
+            }
+        })
+    })
 }
 
 function getUserById(userId){
@@ -113,6 +123,7 @@ function Delete(userId){
 module.exports= {
     getAllUsers,
     createUser,
+    patchUser,
     createPost,
     getUserById,
     login,

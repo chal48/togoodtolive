@@ -21,6 +21,31 @@ module.exports = function (app) {
         })
     })
 
+    app.post('/user/:userId', (req, res) => {
+        let user = serviceController.getUserById(req.params.userId)
+        user.then((response) => {
+            if (response.error != undefined){
+                res.status(200).send(response)
+            }else{
+                res.status(404).send(response)
+            }
+        })
+        .catch((error) => {
+            res.status(502).send(error)
+        })
+    })
+
+    app.patch('/patch/:userId', (req, res) => {
+        let user = serviceController.patchUser(req.params.userId, req.body)
+        user.then((response) => {
+            if (response.error == undefined) {
+                res.status(204).send(response)
+            } else {
+                res.status(404).send(response)
+            }
+        })
+    })
+
     app.get('/', (req, res) => {
         res.sendFile('/template/home.html', { root: './public' })
     })

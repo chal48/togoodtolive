@@ -81,9 +81,39 @@ function getUserById(userId){
     })
 }
 
+function getUserById(userId){
+    // Transforme en int pour vérifier que c'est bien un chiffre
+    userId = parseInt(userId)
+    let user = mysqlController.getUserById(userId)
+    return new Promise((resolve, reject) => {
+        user.then((user) => {
+            resolve(user)
+        })
+        .catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+function patchUser(userId, userInformations) {
+    userId = parseInt(userId)
+    let user = mysqlController.patchUser(userId, userInformations)
+    return new Promise((resolve, reject) => {
+        user.then((user) => {
+            resolve(user)
+        })
+        .catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+
+
 module.exports= {
     makeFixtures,
     getUserById,
+    patchUser,
     login,
     Delete
 }
