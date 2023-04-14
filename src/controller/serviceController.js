@@ -80,10 +80,21 @@ function getUserById(userId){
         })
     })
 }
-
+function insertPost(post){
+    let postinsert = mysqlController.insertPost(post)
+    return new Promise((resolve, reject) => {
+        postinsert.then((response) => {
+            resolve(response)
+        })
+        .catch((error) => {
+            reject(error)
+        })
+    })
+}
 module.exports= {
     makeFixtures,
     getUserById,
     login,
-    Delete
+    Delete,
+    insertPost
 }
