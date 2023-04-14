@@ -55,23 +55,6 @@ function createPost(post){
     }
 }
 
-function isUserInDB(username){
-    return new Promise((resolve, reject)=>{
-        let usernameSanitized = databaseModel.connection.escape(username)
-        let isUserInDB = SQLRequest(`SELECT id FROM users WHERE email = ${usernameSanitized}`)
-        isUserInDB
-        .then((request)=>{
-            if (request.length == 0){
-                console.log(true)
-                resolve(false)
-            } else {
-                console.log(false)
-                resolve(true)
-            }
-        })
-    })
-}
-
 function getUserById(userId){
     return new Promise((resolve, reject) => {
         SQLRequest(`SELECT * FROM users WHERE id = ${userId}`)
