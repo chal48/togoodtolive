@@ -2,6 +2,7 @@ const mysqlController = require('../controller/mysqlController')
 const serviceController = require('../controller/serviceController')
 
 module.exports = function (app) {
+
     app.get('/api', (req, res) => {
         mysqlController.getAllUsers()
         res.send('Hello World!')
