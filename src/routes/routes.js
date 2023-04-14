@@ -158,4 +158,18 @@ module.exports = function (app) {
         }
     })
 
+    app.get('/posts', (req, res) => {
+        let posts = serviceController.getAllPosts()
+        posts.then((response) => {
+            if (response.error != undefined){
+                res.status(200).send(response)
+            }else{
+                res.status(404).send(response)
+            }
+        })
+        .catch((error) => {
+            res.status(502).send(error)
+        })
+    })
+
 }
