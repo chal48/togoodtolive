@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+#div0{
+  display: none;
+}
+
 nav {
     background-color: #BE8888;
     overflow: hidden;
