@@ -90,6 +90,17 @@ main {
 .date {
     font-style: italic;
 }
+
+.no-posts{
+  margin-top: auto;
+  margin-bottom: auto;
+  color : #BE8888;
+}
+
+.no-post-store{
+  height: 30vh;
+  display: flex;
+}
   
 @media screen and (max-width: 767px) {
     .carré {
