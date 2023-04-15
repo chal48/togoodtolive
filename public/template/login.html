@@ -18,7 +18,7 @@
                     <h1>SE CONNECTER</h1>
                     <br>
                 </div>
-                <form method="POST">
+                <form id="add-data">
                     <div class="email">
                         <label class="info" for="email">EMAIL</label>
                         <input class="input-email" placeholder="exemple@gmail.com" type="email" id="email" name="email">
@@ -32,13 +32,13 @@
                     <br>
                     <br>
                     <div class="boutton">
-                        <button class="submit" type="submit" href="http://localhost:8000/user/login">CONNEXION</button>
+                            <button class="submit" type="submit" >CONNEXION</button>
                     </div>
                     <br>
                     <br>
                     <div class="option">
                         <div class="account">
-                            <div class="link" href="">Créer un compte &ensp; </div>
+                            <div class="link" href="/create">Créer un compte &ensp; </div>
                         </div>
                         <div class="seperate"></div>
                         <div class="password">
@@ -49,7 +49,9 @@
             </div>
             <div class="logo">
                 <!-- <div class="logo-profil"></div> -->
-                <img src="/img/big-logo.png" class="logo-profil">
+                <a href="/">
+                    <img src="/img/big-logo.png" class="logo-profil">
+                </a>
             </div>
             <div class="spacebar">
                 <div class="bar"></div>
