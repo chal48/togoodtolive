@@ -18,21 +18,31 @@
                     <span class="close" onclick="closePopup()">&times;</span>
                     <h1>AJOUTER UN BON PLAN</h1>
                     <br>
-                    <form>
+                    <form id="add-post">
                         <div class="add-post-popup">
                             <div class="data-titre">
                                 <label class="titre" for="title">Titre : &ensp; </label>
                                 <input class="input-titre" type="text" placeholder="ex : 500 grammes de pates à seulement 2,50 euros " id="title" name="title">
                             </div>
                             <br>
+                            <div class="data-content">
+                                <label class="location" for="content">Lieu : &ensp; </label>
+                                <input class="input-location" type="textarea" placeholder="ex : Auchan de Montpellier City 69 rue du grand bain " id="content" name="content">
+                            </div>
+                            <br>
                             <div class="data-location">
                                 <label class="location" for="location">Lieu : &ensp; </label>
-                                <input class="input-location" type="text" placeholder="ex : Auchan de Montpellier City 69 rue du grand bain " id="location" name="location">
+                                <input class="input-location" type="textarea" placeholder="ex : Auchan de Montpellier City 69 rue du grand bain " id="location" name="location">
+                            </div>
+                            <br>
+                            <div class="data-location">
+                                <label class="location" for="location">Lieu : &ensp; </label>
+                                <input class="input-location" type="textarea" placeholder="ex : Auchan de Montpellier City 69 rue du grand bain " id="location" name="location">
                             </div>
                             <br>
                             <div class="data-price">
                                 <label class="prix" for="price">Prix : &ensp; </label>
-                                <input class="input-prix" type="number" placeholder="ex : 2,50" id="price" name="price">
+                                <input class="input-prix" type="number" min="0" placeholder="ex : 2,50" id="price" name="price">
                             </div>
                             <br>
                                 <br>
@@ -60,10 +70,7 @@
       </form>
 
 	<main>
-        <div class="no-post-store">
-            <h2 class="no-posts">Pas de posts, revenez plus tard !</h2>
-        </div>
-        <!-- <div class="carré" id="div0">
+        <div class="carré" id="div0">
             <div class="title">
                 {{title}}
             </div>
@@ -78,7 +85,7 @@
                     {{dateStart}}-{{dateEnd}}
                 </div>
             </div> 
-        </div> -->
+        </div>
     </main>
 </body>
 </html>
